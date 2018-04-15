@@ -38,6 +38,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,11 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\SR_ProgramListWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\SR_ProgramListWebService\CoreOutput.SR_ProgramListWebService.Program.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR_ProgramListWebService\ProgramListWebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoreLogic\CoreLogic.csproj">
@@ -58,11 +69,24 @@
     </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{5fd6d2c5-3074-439b-904b-18f3fb3c7ba7}</Project>
-      <Name>Shared %28Shared\Shared%29</Name>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\SR_ProgramListWebService\ProgramListWebService.disco" />
+    <None Include="Connected Services\SR_ProgramListWebService\configuration91.svcinfo" />
+    <None Include="Connected Services\SR_ProgramListWebService\configuration.svcinfo" />
+    <None Include="Connected Services\SR_ProgramListWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Info.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\SR_ProgramListWebService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

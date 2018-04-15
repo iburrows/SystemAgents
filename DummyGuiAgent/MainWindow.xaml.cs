@@ -23,8 +23,9 @@ namespace DummyGuiAgent
     public partial class MainWindow : Window
     {
 
-        ServiceCommunication com = new ServiceCommunication();
-
+        //ServiceCommunication com = new ServiceCommunication();
+        //Added 28.03.2018 by Ian - To be able to use MSMQ service
+        MSMQCommunication com = new MSMQCommunication();
         private string messageToSend;
 
         public string MessageToSend

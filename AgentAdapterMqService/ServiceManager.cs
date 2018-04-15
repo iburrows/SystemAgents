@@ -68,7 +68,7 @@ namespace AgentAdapterMqService
             {
                 Message message = messageQueue.Receive(); //get message from queue
                 informer((CoreMessage)message.Body); //inform adapter logic
-                
+
             }
         }
 

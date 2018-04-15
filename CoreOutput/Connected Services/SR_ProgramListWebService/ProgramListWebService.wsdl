@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetProgramList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProgramListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProgramListResult" type="tns:ArrayOfProgram" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProgram">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Program" nillable="true" type="tns:Program" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Program">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProgramListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProgramList" />
+  </wsdl:message>
+  <wsdl:message name="GetProgramListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProgramListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProgramListWebServiceSoap">
+    <wsdl:operation name="GetProgramList">
+      <wsdl:input message="tns:GetProgramListSoapIn" />
+      <wsdl:output message="tns:GetProgramListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProgramListWebServiceSoap" type="tns:ProgramListWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProgramList">
+      <soap:operation soapAction="http://tempuri.org/GetProgramList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProgramListWebServiceSoap12" type="tns:ProgramListWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProgramList">
+      <soap12:operation soapAction="http://tempuri.org/GetProgramList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProgramListWebService">
+    <wsdl:port name="ProgramListWebServiceSoap" binding="tns:ProgramListWebServiceSoap">
+      <soap:address location="http://localhost:57063/Services/ProgramListWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProgramListWebServiceSoap12" binding="tns:ProgramListWebServiceSoap12">
+      <soap12:address location="http://localhost:57063/Services/ProgramListWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

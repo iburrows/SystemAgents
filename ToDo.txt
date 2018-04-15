@@ -1,0 +1,4 @@
+Possibly use AgentAdapterMqService in the CD04 project to receive the data?
+
+AgentAdapterMqService has all of the services to be able to use the MSMQ 
+service and can receive messages from the MSMQ.

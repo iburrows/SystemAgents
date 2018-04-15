@@ -21,6 +21,7 @@ namespace ProgramListAgent.Services
         [WebMethod]
         public List<Program> GetProgramList()
         {
+            //var site = System.Web.Hosting.HostingEnvironment.ApplicationHost.GetSiteName();
             var programList = new List<Program>();
             string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
             using (Microsoft.Win32.RegistryKey key = Registry.LocalMachine.OpenSubKey(registry_key))
@@ -42,5 +43,7 @@ namespace ProgramListAgent.Services
             }
             return programList;
         }
+
+        
     }
 }

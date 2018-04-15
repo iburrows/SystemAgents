@@ -14,6 +14,6 @@
         </Grid.RowDefinitions>
         <Label Content="Data to send" VerticalAlignment="Center" Margin="5,7"/>
         <TextBox Grid.Column="1" Height="25" Width="250" Text="{Binding MessageToSend, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,0"/>
-        <Button Content="Sumit" Height="25" Width="70" Grid.Column="2" Click="SendMessage_Clicked"/>
+        <Button Content="Submit" Height="25" Width="70" Grid.Column="2" Click="SendMessage_Clicked"/>
     </Grid>
 </Window>
