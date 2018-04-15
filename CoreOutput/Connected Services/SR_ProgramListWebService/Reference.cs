@@ -123,12 +123,12 @@ namespace CoreOutput.SR_ProgramListWebService {
     public partial class GetProgramListResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public CoreOutput.SR_ProgramListWebService.Program[] GetProgramListResult;
+        public System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program> GetProgramListResult;
         
         public GetProgramListResponseBody() {
         }
         
-        public GetProgramListResponseBody(CoreOutput.SR_ProgramListWebService.Program[] GetProgramListResult) {
+        public GetProgramListResponseBody(System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program> GetProgramListResult) {
             this.GetProgramListResult = GetProgramListResult;
         }
     }
@@ -148,10 +148,10 @@ namespace CoreOutput.SR_ProgramListWebService {
             this.results = results;
         }
         
-        public CoreOutput.SR_ProgramListWebService.Program[] Result {
+        public System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((CoreOutput.SR_ProgramListWebService.Program[])(this.results[0]));
+                return ((System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program>)(this.results[0]));
             }
         }
     }
@@ -192,7 +192,7 @@ namespace CoreOutput.SR_ProgramListWebService {
             return base.Channel.GetProgramList(request);
         }
         
-        public CoreOutput.SR_ProgramListWebService.Program[] GetProgramList() {
+        public System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program> GetProgramList() {
             CoreOutput.SR_ProgramListWebService.GetProgramListRequest inValue = new CoreOutput.SR_ProgramListWebService.GetProgramListRequest();
             inValue.Body = new CoreOutput.SR_ProgramListWebService.GetProgramListRequestBody();
             CoreOutput.SR_ProgramListWebService.GetProgramListResponse retVal = ((CoreOutput.SR_ProgramListWebService.ProgramListWebServiceSoap)(this)).GetProgramList(inValue);
@@ -217,7 +217,7 @@ namespace CoreOutput.SR_ProgramListWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public CoreOutput.SR_ProgramListWebService.Program[] EndGetProgramList(System.IAsyncResult result) {
+        public System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program> EndGetProgramList(System.IAsyncResult result) {
             CoreOutput.SR_ProgramListWebService.GetProgramListResponse retVal = ((CoreOutput.SR_ProgramListWebService.ProgramListWebServiceSoap)(this)).EndGetProgramList(result);
             return retVal.Body.GetProgramListResult;
         }
@@ -227,7 +227,7 @@ namespace CoreOutput.SR_ProgramListWebService {
         }
         
         private object[] OnEndGetProgramList(System.IAsyncResult result) {
-            CoreOutput.SR_ProgramListWebService.Program[] retVal = this.EndGetProgramList(result);
+            System.Collections.Generic.List<CoreOutput.SR_ProgramListWebService.Program> retVal = this.EndGetProgramList(result);
             return new object[] {
                     retVal};
         }
