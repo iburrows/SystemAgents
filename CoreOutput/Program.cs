@@ -34,9 +34,16 @@ namespace CoreOutput
             LogicHandler lh = new LogicHandler(new MessageInformer(NewMessageReceived));
 
             Console.WriteLine("Calling Program List Web Service ");
+            Console.WriteLine("*********************************");
             SR_ProgramListWebService.ProgramListWebServiceSoapClient client = new SR_ProgramListWebService.ProgramListWebServiceSoapClient();
             client.GetProgramListCompleted += client_GetProgramListCompleted;
-            client.GetProgramListAsync();
+            List<CoreOutput.SR_ProgramListWebService.Program> programs = client.GetProgramListAsync();
+            //List<CoreOutput.SR_ProgramListWebService.Program> programs = client.GetProgramList();
+            foreach (var item in programs)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.WriteLine("*********************************");
             Console.ReadLine();
 
             while (true)
